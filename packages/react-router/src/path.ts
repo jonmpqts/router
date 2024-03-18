@@ -173,7 +173,7 @@ export function matchPathname(
 }
 
 export function removeBasepath(basepath: string, pathname: string) {
-  return basepath != '/' ? pathname.replace(basepath, '') : pathname
+  return basepath != '/' ? pathname.replace(new RegExp(`^${basepath}`), '') : pathname
 }
 
 export function matchByPath(
